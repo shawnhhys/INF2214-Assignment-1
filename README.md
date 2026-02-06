@@ -67,9 +67,11 @@ Kafka consumer is configured as follows:
 
 ## 5. Running the Pipeline
 Start the consumer (optional, can run before or after producer):
-'py consumer.py'
+
+`py consumer.py`
 
 Run the producer:
-'py producer.py'
+
+`py producer.py`
 
 Verify in the consumer terminal that exactly 5 messages are received.
