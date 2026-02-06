@@ -9,17 +9,17 @@ This project implements a **Kafka-based streaming pipeline** for a campus cafe. 
 
 1. Start Docker containers for Kafka broker and Schema Registry:
 
-docker-compose up -d
+`docker-compose up -d`
 
 2. Verify the containers are running:
 
-docker ps
+`docker ps`
 
 4. Create the Kafka topic demo with 3 partitions and replication factor 1:
 
-docker exec -it broker kafka-topics --create --topic demo --bootstrap-server localhost:9092 --partitions 3 --replication-factor 1
+`docker exec -it broker kafka-topics --create --topic demo --bootstrap-server localhost:9092 --partitions 3 --replication-factor 1`
 
-Deleting and recreating the topic is could make sure each time the terminal will output 5 results
+*Deleting and recreating the topic is could make sure each time the terminal will output 5 results*
 
 ## 2.  JSON Schema
 | Field           | Type   | Description                              |
@@ -59,11 +59,11 @@ Kafka consumer is configured as follows:
 
 `enable.auto.commit`: True           # Automatically commit offsets after messages are read
 
-group.id ensures independent tracking of consumed messages.
+`group.id` ensures independent tracking of consumed messages.
 
-auto.offset.reset allows a fresh consumer to read all messages.
+`auto.offset.reset` allows a fresh consumer to read all messages.
 
-enable.auto.commit simplifies offset management for this demo.
+`enable.auto.commit` simplifies offset management for this demo.
 
 ## 5. Running the Pipeline
 Start the consumer (optional, can run before or after producer):
