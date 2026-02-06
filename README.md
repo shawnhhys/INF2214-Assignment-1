@@ -51,7 +51,9 @@ Kafka consumer is configured as follows:
 `enable.auto.commit`: True           # Automatically commit offsets after messages are read
 
 group.id ensures independent tracking of consumed messages.
+
 auto.offset.reset allows a fresh consumer to read all messages.
+
 enable.auto.commit simplifies offset management for this demo.
 
 ## 5. Running the Pipeline
