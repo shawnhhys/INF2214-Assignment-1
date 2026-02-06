@@ -33,10 +33,10 @@ Deleting and recreating the topic is could make sure each time the terminal will
 Sends 5 random events per run.
 Kafka configuration:
 
-"acks": 1                 # Waits for leader confirmation
-"client.id": <hostname>   # Identifies the producer client
-"key.serializer": StringSerializer("utf_8")
-"value.serializer": JSONSerializer(...)
+'acks': 1                 # Waits for leader confirmation
+'client.id': <hostname>   # Identifies the producer client
+'key.serializer': StringSerializer("utf_8")
+'value.serializer': JSONSerializer(...)
 
 
 Each event is delivered to a partition in the demo topic.
@@ -46,19 +46,19 @@ Delivery confirmation is printed using a callback function.
 
 Kafka consumer is configured as follows:
 
-"group.id": "cafe-group-clean"       # Unique identifier for this consumer group
-"auto.offset.reset": "earliest"      # Start reading from the earliest offset if group is new
-"enable.auto.commit": True           # Automatically commit offsets after messages are read
+'group.id': 'cafe-group-clean'       # Unique identifier for this consumer group
+'auto.offset.reset': 'earliest'      # Start reading from the earliest offset if group is new
+'enable.auto.commit': True           # Automatically commit offsets after messages are read
 
 group.id ensures independent tracking of consumed messages.
 auto.offset.reset allows a fresh consumer to read all messages.
 enable.auto.commit simplifies offset management for this demo.
 
-##5. Running the Pipeline
+## 5. Running the Pipeline
 Start the consumer (optional, can run before or after producer):
-py consumer.py
+'py consumer.py'
 
 Run the producer:
-py producer.py
+'py producer.py'
 
 Verify in the consumer terminal that exactly 5 messages are received.
