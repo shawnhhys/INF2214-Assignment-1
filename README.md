@@ -8,13 +8,17 @@ This project implements a **Kafka-based streaming pipeline** for a campus cafe. 
 ## 1. Docker Setup
 
 1. Start Docker containers for Kafka broker and Schema Registry:
+
 docker-compose up -d
 
 2. Verify the containers are running:
+
 docker ps
 
-3. Create the Kafka topic demo with 3 partitions and replication factor 1:
+4. Create the Kafka topic demo with 3 partitions and replication factor 1:
+
 docker exec -it broker kafka-topics --create --topic demo --bootstrap-server localhost:9092 --partitions 3 --replication-factor 1
+
 Deleting and recreating the topic is could make sure each time the terminal will output 5 results
 
 ## 2.  JSON Schema
@@ -34,8 +38,11 @@ Sends 5 random events per run.
 Kafka configuration:
 
 `acks`: 1                 # Waits for leader confirmation
+
 `client.id`: <hostname>   # Identifies the producer client
+
 `key.serializer`: StringSerializer("utf_8")
+
 `value.serializer`: JSONSerializer(...)
 
 
@@ -47,7 +54,9 @@ Delivery confirmation is printed using a callback function.
 Kafka consumer is configured as follows:
 
 `group.id': 'cafe-group-clean`       # Unique identifier for this consumer group
+
 `auto.offset.reset': 'earliest`      # Start reading from the earliest offset if group is new
+
 `enable.auto.commit`: True           # Automatically commit offsets after messages are read
 
 group.id ensures independent tracking of consumed messages.
